@@ -1,0 +1,4531 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/lukeapage/pngjs">pngjs (v3.0.1)</a>
+</h1>
+<h4>PNG encoder/decoder in pure JS, supporting any bit size &amp; interlace, async &amp; sync with full test suite.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs">module pngjs</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG">
+            function <span class="apidocSignatureSpan">pngjs.</span>PNG
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream">
+            function <span class="apidocSignatureSpan">pngjs.</span>chunkstream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.crc">
+            function <span class="apidocSignatureSpan">pngjs.</span>crc
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse">
+            function <span class="apidocSignatureSpan">pngjs.</span>filter_parse
+            <span class="apidocSignatureSpan">(bitmapInfo, dependencies)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse_async">
+            function <span class="apidocSignatureSpan">pngjs.</span>filter_parse_async
+            <span class="apidocSignatureSpan">(bitmapInfo)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer">
+            function <span class="apidocSignatureSpan">pngjs.</span>packer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer_async">
+            function <span class="apidocSignatureSpan">pngjs.</span>packer_async
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser">
+            function <span class="apidocSignatureSpan">pngjs.</span>parser
+            <span class="apidocSignatureSpan">(options, dependencies)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser_async">
+            function <span class="apidocSignatureSpan">pngjs.</span>parser_async
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.sync_reader">
+            function <span class="apidocSignatureSpan">pngjs.</span>sync_reader
+            <span class="apidocSignatureSpan">(buffer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>PNG.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>PNG.sync</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>bitmapper</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>chunkstream.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>crc.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>filter_parse.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>filter_parse_sync</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>interlace</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>packer.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>packer_async.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>parser.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>parser_async.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.</span>sync_reader.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.PNG">module pngjs.PNG</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.PNG">
+            function <span class="apidocSignatureSpan">pngjs.</span>PNG
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.adjustGamma">
+            function <span class="apidocSignatureSpan">pngjs.PNG.</span>adjustGamma
+            <span class="apidocSignatureSpan">(src)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.bitblt">
+            function <span class="apidocSignatureSpan">pngjs.PNG.</span>bitblt
+            <span class="apidocSignatureSpan">(src, dst, srcX, srcY, width, height, deltaX, deltaY)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.super_">
+            function <span class="apidocSignatureSpan">pngjs.PNG.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">pngjs.PNG.</span>sync</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.PNG.prototype">module pngjs.PNG.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.prototype._gamma">
+            function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>_gamma
+            <span class="apidocSignatureSpan">(gamma)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.prototype._handleClose">
+            function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>_handleClose
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.prototype._metadata">
+            function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>_metadata
+            <span class="apidocSignatureSpan">(metadata)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.prototype.adjustGamma">
+            function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>adjustGamma
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.prototype.bitblt">
+            function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>bitblt
+            <span class="apidocSignatureSpan">(dst, srcX, srcY, width, height, deltaX, deltaY)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.prototype.end">
+            function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>end
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.prototype.pack">
+            function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>pack
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.prototype.parse">
+            function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>parse
+            <span class="apidocSignatureSpan">(data, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.prototype.write">
+            function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>write
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.PNG.sync">module pngjs.PNG.sync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.sync.read">
+            function <span class="apidocSignatureSpan">pngjs.PNG.sync.</span>read
+            <span class="apidocSignatureSpan">(buffer, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.PNG.sync.write">
+            function <span class="apidocSignatureSpan">pngjs.PNG.sync.</span>write
+            <span class="apidocSignatureSpan">(png)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.bitmapper">module pngjs.bitmapper</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.bitmapper.dataToBitMap">
+            function <span class="apidocSignatureSpan">pngjs.bitmapper.</span>dataToBitMap
+            <span class="apidocSignatureSpan">(data, bitmapInfo)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.chunkstream">module pngjs.chunkstream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.chunkstream">
+            function <span class="apidocSignatureSpan">pngjs.</span>chunkstream
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.super_">
+            function <span class="apidocSignatureSpan">pngjs.chunkstream.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.chunkstream.prototype">module pngjs.chunkstream.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.prototype._end">
+            function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>_end
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.prototype._process">
+            function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>_process
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.prototype._processRead">
+            function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>_processRead
+            <span class="apidocSignatureSpan">(read)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.prototype._processReadAllowingLess">
+            function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>_processReadAllowingLess
+            <span class="apidocSignatureSpan">(read)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.prototype.destroy">
+            function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>destroy
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.prototype.destroySoon">
+            function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>destroySoon
+            <span class="apidocSignatureSpan">(data, encoding)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.prototype.end">
+            function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>end
+            <span class="apidocSignatureSpan">(data, encoding)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.prototype.read">
+            function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>read
+            <span class="apidocSignatureSpan">(length, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.chunkstream.prototype.write">
+            function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>write
+            <span class="apidocSignatureSpan">(data, encoding)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.crc">module pngjs.crc</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.crc.crc">
+            function <span class="apidocSignatureSpan">pngjs.</span>crc
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.crc.crc32">
+            function <span class="apidocSignatureSpan">pngjs.crc.</span>crc32
+            <span class="apidocSignatureSpan">(buf)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.crc.prototype">module pngjs.crc.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.crc.prototype.crc32">
+            function <span class="apidocSignatureSpan">pngjs.crc.prototype.</span>crc32
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.crc.prototype.write">
+            function <span class="apidocSignatureSpan">pngjs.crc.prototype.</span>write
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.filter_parse">module pngjs.filter_parse</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse.filter_parse">
+            function <span class="apidocSignatureSpan">pngjs.</span>filter_parse
+            <span class="apidocSignatureSpan">(bitmapInfo, dependencies)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.filter_parse.prototype">module pngjs.filter_parse.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse.prototype._reverseFilterLine">
+            function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>_reverseFilterLine
+            <span class="apidocSignatureSpan">(rawData)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse.prototype._unFilterType1">
+            function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>_unFilterType1
+            <span class="apidocSignatureSpan">(rawData, unfilteredLine, byteWidth)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse.prototype._unFilterType2">
+            function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>_unFilterType2
+            <span class="apidocSignatureSpan">(rawData, unfilteredLine, byteWidth)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse.prototype._unFilterType3">
+            function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>_unFilterType3
+            <span class="apidocSignatureSpan">(rawData, unfilteredLine, byteWidth)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse.prototype._unFilterType4">
+            function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>_unFilterType4
+            <span class="apidocSignatureSpan">(rawData, unfilteredLine, byteWidth)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse.prototype.start">
+            function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>start
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.filter_parse_async">module pngjs.filter_parse_async</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse_async.filter_parse_async">
+            function <span class="apidocSignatureSpan">pngjs.</span>filter_parse_async
+            <span class="apidocSignatureSpan">(bitmapInfo)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse_async.super_">
+            function <span class="apidocSignatureSpan">pngjs.filter_parse_async.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.filter_parse_sync">module pngjs.filter_parse_sync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.filter_parse_sync.process">
+            function <span class="apidocSignatureSpan">pngjs.filter_parse_sync.</span>process
+            <span class="apidocSignatureSpan">(inBuffer, bitmapInfo)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.interlace">module pngjs.interlace</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.interlace.getImagePasses">
+            function <span class="apidocSignatureSpan">pngjs.interlace.</span>getImagePasses
+            <span class="apidocSignatureSpan">(width, height)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.interlace.getInterlaceIterator">
+            function <span class="apidocSignatureSpan">pngjs.interlace.</span>getInterlaceIterator
+            <span class="apidocSignatureSpan">(width)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.packer">module pngjs.packer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer.packer">
+            function <span class="apidocSignatureSpan">pngjs.</span>packer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.packer.prototype">module pngjs.packer.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer.prototype._packChunk">
+            function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>_packChunk
+            <span class="apidocSignatureSpan">(type, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer.prototype.createDeflate">
+            function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>createDeflate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer.prototype.filterData">
+            function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>filterData
+            <span class="apidocSignatureSpan">(data, width, height)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer.prototype.getDeflateOptions">
+            function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>getDeflateOptions
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer.prototype.packGAMA">
+            function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>packGAMA
+            <span class="apidocSignatureSpan">(gamma)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer.prototype.packIDAT">
+            function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>packIDAT
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer.prototype.packIEND">
+            function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>packIEND
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer.prototype.packIHDR">
+            function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>packIHDR
+            <span class="apidocSignatureSpan">(width, height)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.packer_async">module pngjs.packer_async</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer_async.packer_async">
+            function <span class="apidocSignatureSpan">pngjs.</span>packer_async
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer_async.super_">
+            function <span class="apidocSignatureSpan">pngjs.packer_async.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.packer_async.prototype">module pngjs.packer_async.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.packer_async.prototype.pack">
+            function <span class="apidocSignatureSpan">pngjs.packer_async.prototype.</span>pack
+            <span class="apidocSignatureSpan">(data, width, height, gamma)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.parser">module pngjs.parser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.parser">
+            function <span class="apidocSignatureSpan">pngjs.</span>parser
+            <span class="apidocSignatureSpan">(options, dependencies)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.parser.prototype">module pngjs.parser.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._handleChunkEnd">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleChunkEnd
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._handleGAMA">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleGAMA
+            <span class="apidocSignatureSpan">(length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._handleIDAT">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleIDAT
+            <span class="apidocSignatureSpan">(length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._handleIEND">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleIEND
+            <span class="apidocSignatureSpan">(length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._handleIHDR">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleIHDR
+            <span class="apidocSignatureSpan">(length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._handlePLTE">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handlePLTE
+            <span class="apidocSignatureSpan">(length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._handleTRNS">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleTRNS
+            <span class="apidocSignatureSpan">(length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._parseChunkBegin">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseChunkBegin
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._parseChunkEnd">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseChunkEnd
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._parseGAMA">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseGAMA
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._parseIDAT">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseIDAT
+            <span class="apidocSignatureSpan">(length, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._parseIEND">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseIEND
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._parseIHDR">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseIHDR
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._parsePLTE">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parsePLTE
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._parseSignature">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseSignature
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._parseTRNS">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseTRNS
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype._skipChunk">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_skipChunk
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser.prototype.start">
+            function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>start
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.parser_async">module pngjs.parser_async</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser_async.parser_async">
+            function <span class="apidocSignatureSpan">pngjs.</span>parser_async
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser_async.super_">
+            function <span class="apidocSignatureSpan">pngjs.parser_async.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.parser_async.prototype">module pngjs.parser_async.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser_async.prototype._complete">
+            function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_complete
+            <span class="apidocSignatureSpan">(filteredData)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser_async.prototype._finished">
+            function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_finished
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser_async.prototype._handleError">
+            function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_handleError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser_async.prototype._handleMetaData">
+            function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_handleMetaData
+            <span class="apidocSignatureSpan">(metaData)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser_async.prototype._handlePalette">
+            function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_handlePalette
+            <span class="apidocSignatureSpan">(palette)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser_async.prototype._handleTransColor">
+            function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_handleTransColor
+            <span class="apidocSignatureSpan">(transColor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.parser_async.prototype._inflateData">
+            function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_inflateData
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.sync_reader">module pngjs.sync_reader</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.sync_reader.sync_reader">
+            function <span class="apidocSignatureSpan">pngjs.</span>sync_reader
+            <span class="apidocSignatureSpan">(buffer)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.pngjs.sync_reader.prototype">module pngjs.sync_reader.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.sync_reader.prototype.process">
+            function <span class="apidocSignatureSpan">pngjs.sync_reader.prototype.</span>process
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.pngjs.sync_reader.prototype.read">
+            function <span class="apidocSignatureSpan">pngjs.sync_reader.prototype.</span>read
+            <span class="apidocSignatureSpan">(length, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs" id="apidoc.module.pngjs">module pngjs</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG" id="apidoc.element.pngjs.PNG">
+        function <span class="apidocSignatureSpan">pngjs.</span>PNG
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">PNG = function (options) {
+  Stream.call(this);
+
+  options = options || {}; // eslint-disable-line no-param-reassign
+
+  // coerce pixel dimensions to integers (also coerces undefined -&gt; 0):
+  this.width = options.width | 0;
+  this.height = options.height | 0;
+
+  this.data = this.width &gt; 0 &amp;&amp; this.height &gt; 0 ?
+    new Buffer(4 * this.width * this.height) : null;
+
+  if (options.fill &amp;&amp; this.data) {
+    this.data.fill(0);
+  }
+
+  this.gamma = 0;
+  this.readable = this.writable = true;
+
+  this._parser = new Parser(options);
+
+  this._parser.on('error', this.emit.bind(this, 'error'));
+  this._parser.on('close', this._handleClose.bind(this));
+  this._parser.on('metadata', this._metadata.bind(this));
+  this._parser.on('gamma', this._gamma.bind(this));
+  this._parser.on('parsed', function(data) {
+    this.data = data;
+    this.emit('parsed', data);
+  }.bind(this));
+
+  this._packer = new Packer(options);
+  this._packer.on('data', this.emit.bind(this, 'data'));
+  this._packer.on('end', this.emit.bind(this, 'end'));
+  this._parser.on('close', this._handleClose.bind(this));
+  this._packer.on('error', this.emit.bind(this, 'error'));
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream" id="apidoc.element.pngjs.chunkstream">
+        function <span class="apidocSignatureSpan">pngjs.</span>chunkstream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">chunkstream = function () {
+  Stream.call(this);
+
+  this._buffers = [];
+  this._buffered = 0;
+
+  this._reads = [];
+  this._paused = false;
+
+  this._encoding = 'utf8';
+  this.writable = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.crc" id="apidoc.element.pngjs.crc">
+        function <span class="apidocSignatureSpan">pngjs.</span>crc
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">crc = function () {
+  this._crc = -1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse" id="apidoc.element.pngjs.filter_parse">
+        function <span class="apidocSignatureSpan">pngjs.</span>filter_parse
+        <span class="apidocSignatureSpan">(bitmapInfo, dependencies)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter_parse = function (bitmapInfo, dependencies) {
+
+  var width = bitmapInfo.width;
+  var height = bitmapInfo.height;
+  var interlace = bitmapInfo.interlace;
+  var bpp = bitmapInfo.bpp;
+  var depth = bitmapInfo.depth;
+
+  this.read = dependencies.read;
+  this.write = dependencies.write;
+  this.complete = dependencies.complete;
+
+  this._imageIndex = 0;
+  this._images = [];
+  if (interlace) {
+    var passes = interlaceUtils.getImagePasses(width, height);
+    for (var i = 0; i &lt; passes.length; i++) {
+      this._images.push({
+        byteWidth: getByteWidth(passes[i].width, bpp, depth),
+        height: passes[i].height,
+        lineIndex: 0
+      });
+    }
+  }
+  else {
+    this._images.push({
+      byteWidth: getByteWidth(width, bpp, depth),
+      height: height,
+      lineIndex: 0
+    });
+  }
+
+  // when filtering the line we look at the pixel to the left
+  // the spec also says it is done on a byte level regardless of the number of pixels
+  // so if the depth is byte compatible (8 or 16) we subtract the bpp in order to compare back
+  // a pixel rather than just a different byte part. However if we are sub byte, we ignore.
+  if (depth === 8) {
+    this._xComparison = bpp;
+  }
+  else if (depth === 16) {
+    this._xComparison = bpp * 2;
+  }
+  else {
+    this._xComparison = 1;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse_async" id="apidoc.element.pngjs.filter_parse_async">
+        function <span class="apidocSignatureSpan">pngjs.</span>filter_parse_async
+        <span class="apidocSignatureSpan">(bitmapInfo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter_parse_async = function (bitmapInfo) {
+  ChunkStream.call(this);
+
+  var buffers = [];
+  var that = this;
+  this._filter = new Filter(bitmapInfo, {
+    read: this.read.bind(this),
+    write: function(buffer) {
+      buffers.push(buffer);
+    },
+    complete: function() {
+      that.emit('complete', Buffer.concat(buffers));
+    }
+  });
+
+  this._filter.start();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer" id="apidoc.element.pngjs.packer">
+        function <span class="apidocSignatureSpan">pngjs.</span>packer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">packer = function (options) {
+  this._options = options;
+
+  options.deflateChunkSize = options.deflateChunkSize || 32 * 1024;
+  options.deflateLevel = options.deflateLevel != null ? options.deflateLevel : 9;
+  options.deflateStrategy = options.deflateStrategy != null ? options.deflateStrategy : 3;
+  options.inputHasAlpha = options.inputHasAlpha != null ? options.inputHasAlpha : true;
+  options.deflateFactory = options.deflateFactory || zlib.createDeflate;
+  options.bitDepth = options.bitDepth || 8;
+  options.colorType = (typeof options.colorType === 'number') ? options.colorType : constants.COLORTYPE_COLOR_ALPHA;
+
+  if (options.colorType !== constants.COLORTYPE_COLOR &amp;&amp; options.colorType !== constants.COLORTYPE_COLOR_ALPHA) {
+    throw new Error('option color type:' + options.colorType + ' is not supported at present');
+  }
+  if (options.bitDepth !== 8) {
+    throw new Error('option bit depth:' + options.bitDepth + ' is not supported at present');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer_async" id="apidoc.element.pngjs.packer_async">
+        function <span class="apidocSignatureSpan">pngjs.</span>packer_async
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">packer_async = function (opt) {
+  Stream.call(this);
+
+  var options = opt || {};
+
+  this._packer = new Packer(options);
+  this._deflate = this._packer.createDeflate();
+
+  this.readable = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser" id="apidoc.element.pngjs.parser">
+        function <span class="apidocSignatureSpan">pngjs.</span>parser
+        <span class="apidocSignatureSpan">(options, dependencies)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parser = function (options, dependencies) {
+
+  this._options = options;
+  options.checkCRC = options.checkCRC !== false;
+
+  this._hasIHDR = false;
+  this._hasIEND = false;
+
+  // input flags/metadata
+  this._palette = [];
+  this._colorType = 0;
+
+  this._chunks = {};
+  this._chunks[constants.TYPE_IHDR] = this._handleIHDR.bind(this);
+  this._chunks[constants.TYPE_IEND] = this._handleIEND.bind(this);
+  this._chunks[constants.TYPE_IDAT] = this._handleIDAT.bind(this);
+  this._chunks[constants.TYPE_PLTE] = this._handlePLTE.bind(this);
+  this._chunks[constants.TYPE_tRNS] = this._handleTRNS.bind(this);
+  this._chunks[constants.TYPE_gAMA] = this._handleGAMA.bind(this);
+
+  this.read = dependencies.read;
+  this.error = dependencies.error;
+  this.metadata = dependencies.metadata;
+  this.gamma = dependencies.gamma;
+  this.transColor = dependencies.transColor;
+  this.palette = dependencies.palette;
+  this.parsed = dependencies.parsed;
+  this.inflateData = dependencies.inflateData;
+  this.inflateData = dependencies.inflateData;
+  this.finished = dependencies.finished;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser_async" id="apidoc.element.pngjs.parser_async">
+        function <span class="apidocSignatureSpan">pngjs.</span>parser_async
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parser_async = function (options) {
+  ChunkStream.call(this);
+
+  this._parser = new Parser(options, {
+    read: this.read.bind(this),
+    error: this._handleError.bind(this),
+    metadata: this._handleMetaData.bind(this),
+    gamma: this.emit.bind(this, 'gamma'),
+    palette: this._handlePalette.bind(this),
+    transColor: this._handleTransColor.bind(this),
+    finished: this._finished.bind(this),
+    inflateData: this._inflateData.bind(this)
+  });
+  this._options = options;
+  this.writable = true;
+
+  this._parser.start();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.sync_reader" id="apidoc.element.pngjs.sync_reader">
+        function <span class="apidocSignatureSpan">pngjs.</span>sync_reader
+        <span class="apidocSignatureSpan">(buffer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sync_reader = function (buffer) {
+
+  this._buffer = buffer;
+  this._reads = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.PNG" id="apidoc.module.pngjs.PNG">module pngjs.PNG</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.PNG" id="apidoc.element.pngjs.PNG.PNG">
+        function <span class="apidocSignatureSpan">pngjs.</span>PNG
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">PNG = function (options) {
+  Stream.call(this);
+
+  options = options || {}; // eslint-disable-line no-param-reassign
+
+  // coerce pixel dimensions to integers (also coerces undefined -&gt; 0):
+  this.width = options.width | 0;
+  this.height = options.height | 0;
+
+  this.data = this.width &gt; 0 &amp;&amp; this.height &gt; 0 ?
+    new Buffer(4 * this.width * this.height) : null;
+
+  if (options.fill &amp;&amp; this.data) {
+    this.data.fill(0);
+  }
+
+  this.gamma = 0;
+  this.readable = this.writable = true;
+
+  this._parser = new Parser(options);
+
+  this._parser.on('error', this.emit.bind(this, 'error'));
+  this._parser.on('close', this._handleClose.bind(this));
+  this._parser.on('metadata', this._metadata.bind(this));
+  this._parser.on('gamma', this._gamma.bind(this));
+  this._parser.on('parsed', function(data) {
+    this.data = data;
+    this.emit('parsed', data);
+  }.bind(this));
+
+  this._packer = new Packer(options);
+  this._packer.on('data', this.emit.bind(this, 'data'));
+  this._packer.on('end', this.emit.bind(this, 'end'));
+  this._parser.on('close', this._handleClose.bind(this));
+  this._packer.on('error', this.emit.bind(this, 'error'));
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.adjustGamma" id="apidoc.element.pngjs.PNG.adjustGamma">
+        function <span class="apidocSignatureSpan">pngjs.PNG.</span>adjustGamma
+        <span class="apidocSignatureSpan">(src)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">adjustGamma = function (src) {
+  if (src.gamma) {
+    for (var y = 0; y &lt; src.height; y++) {
+      for (var x = 0; x &lt; src.width; x++) {
+        var idx = (src.width * y + x) &lt;&lt; 2;
+
+        for (var i = 0; i &lt; 3; i++) {
+          var sample = src.data[idx + i] / 255;
+          sample = Math.pow(sample, 1 / 2.2 / src.gamma);
+          src.data[idx + i] = Math.round(sample * 255);
+        }
+      }
+    }
+    src.gamma = 0;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+The following example reads a file, adjusts the gamma (which sets the gamma to 0) and writes it out again, effectively removing
+any gamma correction from the image.
+
+```js
+fs.createReadStream('in.png')
+    .pipe(new PNG())
+    .on('parsed', function() {
+        this.<span class="apidocCodeKeywordSpan">adjustGamma</span>();
+        this.pack().pipe(fs.createWriteStream('out.png'));
+    });
+```
+
+### Property: width
+Width of image in pixels
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.bitblt" id="apidoc.element.pngjs.PNG.bitblt">
+        function <span class="apidocSignatureSpan">pngjs.PNG.</span>bitblt
+        <span class="apidocSignatureSpan">(src, dst, srcX, srcY, width, height, deltaX, deltaY)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bitblt = function (src, dst, srcX, srcY, width, height, deltaX, deltaY) { // eslint-disable-line max-params
+  // coerce pixel dimensions to integers (also coerces undefined -&gt; 0):
+<span class="apidocCodeCommentSpan">  /* eslint-disable no-param-reassign */
+</span>  srcX |= 0;
+  srcY |= 0;
+  width |= 0;
+  height |= 0;
+  deltaX |= 0;
+  deltaY |= 0;
+  /* eslint-enable no-param-reassign */
+
+  if (srcX &gt; src.width || srcY &gt; src.height || srcX + width &gt; src.width || srcY + height &gt; src.height) {
+    throw new Error('bitblt reading outside image');
+  }
+
+  if (deltaX &gt; dst.width || deltaY &gt; dst.height || deltaX + width &gt; dst.width || deltaY + height &gt; dst.height) {
+    throw new Error('bitblt writing outside image');
+  }
+
+  for (var y = 0; y &lt; height; y++) {
+    src.data.copy(dst.data,
+      ((deltaY + y) * dst.width + deltaX) &lt;&lt; 2,
+      ((srcY + y) * src.width + srcX) &lt;&lt; 2,
+      ((srcY + y) * src.width + srcX + width) &lt;&lt; 2
+    );
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### png.pack()
+Starts converting data to PNG file Stream.
+
+Returns `this` for method chaining.
+
+
+### png.<span class="apidocCodeKeywordSpan">bitblt</span>(dst, sx, sy, w, h, dx, dy)
+Helper for image manipulation, copies a rectangle of pixels from current (i.e. the source) image (`sx`, `sy`, `w`, `h`) to `dst`
+image (at `dx`, `dy`).
+
+Returns `this` for method chaining.
+
+For example, the following code copies the top-left 100x50 px of `in.png` into dst and writes it to `out.png`:
+```js
+var dst = new PNG({width: 100, height: 50});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.super_" id="apidoc.element.pngjs.PNG.super_">
+        function <span class="apidocSignatureSpan">pngjs.PNG.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Stream() {
+  EE.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.PNG.prototype" id="apidoc.module.pngjs.PNG.prototype">module pngjs.PNG.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.prototype._gamma" id="apidoc.element.pngjs.PNG.prototype._gamma">
+        function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>_gamma
+        <span class="apidocSignatureSpan">(gamma)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_gamma = function (gamma) {
+  this.gamma = gamma;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.prototype._handleClose" id="apidoc.element.pngjs.PNG.prototype._handleClose">
+        function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>_handleClose
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleClose = function () {
+  if (!this._parser.writable &amp;&amp; !this._packer.readable) {
+    this.emit('close');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.prototype._metadata" id="apidoc.element.pngjs.PNG.prototype._metadata">
+        function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>_metadata
+        <span class="apidocSignatureSpan">(metadata)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_metadata = function (metadata) {
+  this.width = metadata.width;
+  this.height = metadata.height;
+
+  this.emit('metadata', metadata);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.prototype.adjustGamma" id="apidoc.element.pngjs.PNG.prototype.adjustGamma">
+        function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>adjustGamma
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">adjustGamma = function () {
+  PNG.adjustGamma(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+The following example reads a file, adjusts the gamma (which sets the gamma to 0) and writes it out again, effectively removing
+any gamma correction from the image.
+
+```js
+fs.createReadStream('in.png')
+    .pipe(new PNG())
+    .on('parsed', function() {
+        this.<span class="apidocCodeKeywordSpan">adjustGamma</span>();
+        this.pack().pipe(fs.createWriteStream('out.png'));
+    });
+```
+
+### Property: width
+Width of image in pixels
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.prototype.bitblt" id="apidoc.element.pngjs.PNG.prototype.bitblt">
+        function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>bitblt
+        <span class="apidocSignatureSpan">(dst, srcX, srcY, width, height, deltaX, deltaY)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bitblt = function (dst, srcX, srcY, width, height, deltaX, deltaY) { // eslint-disable-line max-params
+
+  PNG.bitblt(this, dst, srcX, srcY, width, height, deltaX, deltaY);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### png.pack()
+Starts converting data to PNG file Stream.
+
+Returns `this` for method chaining.
+
+
+### png.<span class="apidocCodeKeywordSpan">bitblt</span>(dst, sx, sy, w, h, dx, dy)
+Helper for image manipulation, copies a rectangle of pixels from current (i.e. the source) image (`sx`, `sy`, `w`, `h`) to `dst`
+image (at `dx`, `dy`).
+
+Returns `this` for method chaining.
+
+For example, the following code copies the top-left 100x50 px of `in.png` into dst and writes it to `out.png`:
+```js
+var dst = new PNG({width: 100, height: 50});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.prototype.end" id="apidoc.element.pngjs.PNG.prototype.end">
+        function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>end
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function (data) {
+  this._parser.end(data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  if (depth === 8) {
+    if (rawPos !== data.length) {
+      throw new Error('extra data found');
+    }
+  }
+  else {
+    bits.<span class="apidocCodeKeywordSpan">end</span>();
+  }
+
+  return pxData;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.prototype.pack" id="apidoc.element.pngjs.PNG.prototype.pack">
+        function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>pack
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pack = function () {
+
+  if (!this.data || !this.data.length) {
+    this.emit('error', 'No data provided');
+    return this;
+  }
+
+  process.nextTick(function() {
+    this._packer.pack(this.data, this.width, this.height, this.gamma);
+  }.bind(this));
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+                this.data[idx+2] = 255 - this.data[idx+2];
+
+                // and reduce opacity
+                this.data[idx+3] = this.data[idx+3] &gt;&gt; 1;
+            }
+        }
+
+        this.<span class="apidocCodeKeywordSpan">pack</span>().pipe(fs.createWriteStream('out.png'));
+    });
+```
+For more examples see `examples` folder.
+
+Async API
+================
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.prototype.parse" id="apidoc.element.pngjs.PNG.prototype.parse">
+        function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>parse
+        <span class="apidocSignatureSpan">(data, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (data, callback) {
+
+  if (callback) {
+    var onParsed, onError;
+
+    onParsed = function(parsedData) {
+      this.removeListener('error', onError);
+
+      this.data = parsedData;
+      callback(null, this);
+    }.bind(this);
+
+    onError = function(err) {
+      this.removeListener('parsed', onParsed);
+
+      callback(err, null);
+    }.bind(this);
+
+    this.once('parsed', onParsed);
+    this.once('error', onError);
+  }
+
+  this.end(data);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Input image has been completly parsed, `data` is complete and ready for modification.
+
+
+### Event: "error"
+`function(error) { }`
+
+
+### png.<span class="apidocCodeKeywordSpan">parse</span>(data, [callback])
+Parses PNG file data. Can be `String` or `Buffer`. Alternatively you can stream data to instance of PNG.
+
+Optional `callback` is once called on `error` or `parsed`. The callback gets
+two arguments `(err, data)`.
+
+Returns `this` for method chaining.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.prototype.write" id="apidoc.element.pngjs.PNG.prototype.write">
+        function <span class="apidocSignatureSpan">pngjs.PNG.prototype.</span>write
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">write = function (data) {
+  this._parser.write(data);
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Take a buffer and returns a PNG image. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+```
+
+### PNG.sync.<span class="apidocCodeKeywordSpan">write</span>(png)
+
+Take a PNG image and returns a buffer. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+var buffer = PNG.sync.write(png);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.PNG.sync" id="apidoc.module.pngjs.PNG.sync">module pngjs.PNG.sync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.sync.read" id="apidoc.element.pngjs.PNG.sync.read">
+        function <span class="apidocSignatureSpan">pngjs.PNG.sync.</span>read
+        <span class="apidocSignatureSpan">(buffer, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">read = function (buffer, options) {
+
+  return parse(buffer, options || {});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    });
+```
+
+# Sync API
+
+## PNG.sync
+
+### PNG.sync.<span class="apidocCodeKeywordSpan">read</span>(buffer)
+
+Take a buffer and returns a PNG image. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.PNG.sync.write" id="apidoc.element.pngjs.PNG.sync.write">
+        function <span class="apidocSignatureSpan">pngjs.PNG.sync.</span>write
+        <span class="apidocSignatureSpan">(png)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">write = function (png) {
+
+  return pack(png);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Take a buffer and returns a PNG image. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+```
+
+### PNG.sync.<span class="apidocCodeKeywordSpan">write</span>(png)
+
+Take a PNG image and returns a buffer. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+var buffer = PNG.sync.write(png);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.bitmapper" id="apidoc.module.pngjs.bitmapper">module pngjs.bitmapper</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.bitmapper.dataToBitMap" id="apidoc.element.pngjs.bitmapper.dataToBitMap">
+        function <span class="apidocSignatureSpan">pngjs.bitmapper.</span>dataToBitMap
+        <span class="apidocSignatureSpan">(data, bitmapInfo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dataToBitMap = function (data, bitmapInfo) {
+
+  var width = bitmapInfo.width;
+  var height = bitmapInfo.height;
+  var depth = bitmapInfo.depth;
+  var bpp = bitmapInfo.bpp;
+  var interlace = bitmapInfo.interlace;
+
+  if (depth !== 8) {
+    var bits = bitRetriever(data, depth);
+  }
+  var pxData;
+  if (depth &lt;= 8) {
+    pxData = new Buffer(width * height * 4);
+  }
+  else {
+    pxData = new Uint16Array(width * height * 4);
+  }
+  var maxBit = Math.pow(2, depth) - 1;
+  var rawPos = 0;
+  var images;
+  var getPxPos;
+
+  if (interlace) {
+    images = interlaceUtils.getImagePasses(width, height);
+    getPxPos = interlaceUtils.getInterlaceIterator(width, height);
+  }
+  else {
+    var nonInterlacedPxPos = 0;
+    getPxPos = function() {
+      var returner = nonInterlacedPxPos;
+      nonInterlacedPxPos += 4;
+      return returner;
+    };
+    images = [{ width: width, height: height }];
+  }
+
+  for (var imageIndex = 0; imageIndex &lt; images.length; imageIndex++) {
+    if (depth === 8) {
+      rawPos = mapImage8Bit(images[imageIndex], pxData, getPxPos, bpp, data, rawPos);
+    }
+    else {
+      mapImageCustomBit(images[imageIndex], pxData, getPxPos, bpp, bits, maxBit);
+    }
+  }
+  if (depth === 8) {
+    if (rawPos !== data.length) {
+      throw new Error('extra data found');
+    }
+  }
+  else {
+    bits.end();
+  }
+
+  return pxData;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ParserAsync.prototype._complete = function(filteredData) {
+
+if (this.errord) {
+  return;
+}
+
+try {
+  var bitmapData = bitmapper.<span class="apidocCodeKeywordSpan">dataToBitMap</span>(filteredData, this._bitmapInfo);
+
+  var normalisedBitmapData = formatNormaliser(bitmapData, this._bitmapInfo);
+  bitmapData = null;
+}
+catch (ex) {
+  this._handleError(ex);
+  return;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.chunkstream" id="apidoc.module.pngjs.chunkstream">module pngjs.chunkstream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.chunkstream" id="apidoc.element.pngjs.chunkstream.chunkstream">
+        function <span class="apidocSignatureSpan">pngjs.</span>chunkstream
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">chunkstream = function () {
+  Stream.call(this);
+
+  this._buffers = [];
+  this._buffered = 0;
+
+  this._reads = [];
+  this._paused = false;
+
+  this._encoding = 'utf8';
+  this.writable = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.super_" id="apidoc.element.pngjs.chunkstream.super_">
+        function <span class="apidocSignatureSpan">pngjs.chunkstream.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Stream() {
+  EE.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.chunkstream.prototype" id="apidoc.module.pngjs.chunkstream.prototype">module pngjs.chunkstream.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.prototype._end" id="apidoc.element.pngjs.chunkstream.prototype._end">
+        function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>_end
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_end = function () {
+
+  if (this._reads.length &gt; 0) {
+    this.emit('error',
+      new Error('There are some read requests waiting on finished stream')
+    );
+  }
+
+  this.destroy();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // already destroyed
+  if (!this._buffers) {
+    return;
+  }
+
+  // enqueue or handle end
+  if (this._buffers.length === 0) {
+    this.<span class="apidocCodeKeywordSpan">_end</span>();
+  }
+  else {
+    this._buffers.push(null);
+    this._process();
+  }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.prototype._process" id="apidoc.element.pngjs.chunkstream.prototype._process">
+        function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>_process
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_process = function () {
+
+  try {
+    // as long as there is any data and read requests
+    while (this._buffered &gt; 0 &amp;&amp; this._reads &amp;&amp; this._reads.length &gt; 0) {
+
+      var read = this._reads[0];
+
+      // read any data (but no more than length)
+      if (read.allowLess) {
+        this._processReadAllowingLess(read);
+
+      }
+      else if (this._buffered &gt;= read.length) {
+        // ok we can meet some expectations
+
+        this._processRead(read);
+      }
+      else {
+        // not enought data to satisfy first request in queue
+        // so we need to wait for more
+        break;
+      }
+    }
+
+    if (this._buffers &amp;&amp; this._buffers.length &gt; 0 &amp;&amp; this._buffers[0] === null) {
+      this._end();
+    }
+  }
+  catch (ex) {
+    this.emit('error', ex);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this._reads.push({
+length: Math.abs(length),  // if length &lt; 0 then at most this length
+allowLess: length &lt; 0,
+func: callback
+  });
+
+  process.nextTick(function() {
+this.<span class="apidocCodeKeywordSpan">_process</span>();
+
+// its paused and there is not enought data then ask for more
+if (this._paused &amp;&amp; this._reads.length &gt; 0) {
+  this._paused = false;
+
+  this.emit('drain');
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.prototype._processRead" id="apidoc.element.pngjs.chunkstream.prototype._processRead">
+        function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>_processRead
+        <span class="apidocSignatureSpan">(read)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_processRead = function (read) {
+  this._reads.shift(); // == read
+
+  var pos = 0;
+  var count = 0;
+  var data = new Buffer(read.length);
+
+  // create buffer for all data
+  while (pos &lt; read.length) {
+
+    var buf = this._buffers[count++];
+    var len = Math.min(buf.length, read.length - pos);
+
+    buf.copy(data, pos, 0, len);
+    pos += len;
+
+    // last buffer wasn't used all so just slice it and leave
+    if (len !== buf.length) {
+      this._buffers[--count] = buf.slice(len);
+    }
+  }
+
+  // remove all used buffers
+  if (count &gt; 0) {
+    this._buffers.splice(0, count);
+  }
+
+  this._buffered -= read.length;
+
+  read.func.call(this, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (read.allowLess) {
+    this._processReadAllowingLess(read);
+
+  }
+  else if (this._buffered &gt;= read.length) {
+    // ok we can meet some expectations
+
+    this.<span class="apidocCodeKeywordSpan">_processRead</span>(read);
+  }
+  else {
+    // not enought data to satisfy first request in queue
+    // so we need to wait for more
+    break;
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.prototype._processReadAllowingLess" id="apidoc.element.pngjs.chunkstream.prototype._processReadAllowingLess">
+        function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>_processReadAllowingLess
+        <span class="apidocSignatureSpan">(read)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_processReadAllowingLess = function (read) {
+  // ok there is any data so that we can satisfy this request
+  this._reads.shift(); // == read
+
+  // first we need to peek into first buffer
+  var smallerBuf = this._buffers[0];
+
+  // ok there is more data than we need
+  if (smallerBuf.length &gt; read.length) {
+
+    this._buffered -= read.length;
+    this._buffers[0] = smallerBuf.slice(read.length);
+
+    read.func.call(this, smallerBuf.slice(0, read.length));
+
+  }
+  else {
+    // ok this is less than maximum length so use it all
+    this._buffered -= smallerBuf.length;
+    this._buffers.shift(); // == smallerBuf
+
+    read.func.call(this, smallerBuf);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    // as long as there is any data and read requests
+    while (this._buffered &gt; 0 &amp;&amp; this._reads &amp;&amp; this._reads.length &gt; 0) {
+
+var read = this._reads[0];
+
+// read any data (but no more than length)
+if (read.allowLess) {
+  this.<span class="apidocCodeKeywordSpan">_processReadAllowingLess</span>(read);
+
+}
+else if (this._buffered &gt;= read.length) {
+  // ok we can meet some expectations
+
+  this._processRead(read);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.prototype.destroy" id="apidoc.element.pngjs.chunkstream.prototype.destroy">
+        function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>destroy
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function () {
+
+  if (!this._buffers) {
+    return;
+  }
+
+  this.writable = false;
+  this._reads = null;
+  this._buffers = null;
+
+  this.emit('close');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (this._reads.length &gt; 0) {
+  this.emit('error',
+    new Error('There are some read requests waiting on finished stream')
+  );
+}
+
+this.<span class="apidocCodeKeywordSpan">destroy</span>();
+};
+
+ChunkStream.prototype.destroy = function() {
+
+if (!this._buffers) {
+  return;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.prototype.destroySoon" id="apidoc.element.pngjs.chunkstream.prototype.destroySoon">
+        function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>destroySoon
+        <span class="apidocSignatureSpan">(data, encoding)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroySoon = function (data, encoding) {
+
+  if (data) {
+    this.write(data, encoding);
+  }
+
+  this.writable = false;
+
+  // already destroyed
+  if (!this._buffers) {
+    return;
+  }
+
+  // enqueue or handle end
+  if (this._buffers.length === 0) {
+    this._end();
+  }
+  else {
+    this._buffers.push(null);
+    this._process();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (!this._inflate) {
+  this.emit('error', 'No Inflate block');
+}
+else {
+  // no more data to inflate
+  this._inflate.end();
+}
+this.<span class="apidocCodeKeywordSpan">destroySoon</span>();
+};
+
+ParserAsync.prototype._complete = function(filteredData) {
+
+if (this.errord) {
+  return;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.prototype.end" id="apidoc.element.pngjs.chunkstream.prototype.end">
+        function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>end
+        <span class="apidocSignatureSpan">(data, encoding)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end = function (data, encoding) {
+
+  if (data) {
+    this.write(data, encoding);
+  }
+
+  this.writable = false;
+
+  // already destroyed
+  if (!this._buffers) {
+    return;
+  }
+
+  // enqueue or handle end
+  if (this._buffers.length === 0) {
+    this._end();
+  }
+  else {
+    this._buffers.push(null);
+    this._process();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  if (depth === 8) {
+    if (rawPos !== data.length) {
+      throw new Error('extra data found');
+    }
+  }
+  else {
+    bits.<span class="apidocCodeKeywordSpan">end</span>();
+  }
+
+  return pxData;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.prototype.read" id="apidoc.element.pngjs.chunkstream.prototype.read">
+        function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>read
+        <span class="apidocSignatureSpan">(length, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">read = function (length, callback) {
+
+  this._reads.push({
+    length: Math.abs(length),  // if length &lt; 0 then at most this length
+    allowLess: length &lt; 0,
+    func: callback
+  });
+
+  process.nextTick(function() {
+    this._process();
+
+    // its paused and there is not enought data then ask for more
+    if (this._paused &amp;&amp; this._reads.length &gt; 0) {
+      this._paused = false;
+
+      this.emit('drain');
+    }
+  }.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    });
+```
+
+# Sync API
+
+## PNG.sync
+
+### PNG.sync.<span class="apidocCodeKeywordSpan">read</span>(buffer)
+
+Take a buffer and returns a PNG image. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.chunkstream.prototype.write" id="apidoc.element.pngjs.chunkstream.prototype.write">
+        function <span class="apidocSignatureSpan">pngjs.chunkstream.prototype.</span>write
+        <span class="apidocSignatureSpan">(data, encoding)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">write = function (data, encoding) {
+
+  if (!this.writable) {
+    this.emit('error', new Error('Stream not writable'));
+    return false;
+  }
+
+  var dataBuffer;
+  if (Buffer.isBuffer(data)) {
+    dataBuffer = data;
+  }
+  else {
+    dataBuffer = new Buffer(data, encoding || this._encoding);
+  }
+
+  this._buffers.push(dataBuffer);
+  this._buffered += dataBuffer.length;
+
+  this._process();
+
+  // ok if there are no more read requests
+  if (this._reads &amp;&amp; this._reads.length === 0) {
+    this._paused = true;
+  }
+
+  return this.writable &amp;&amp; !this._paused;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Take a buffer and returns a PNG image. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+```
+
+### PNG.sync.<span class="apidocCodeKeywordSpan">write</span>(png)
+
+Take a PNG image and returns a buffer. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+var buffer = PNG.sync.write(png);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.crc" id="apidoc.module.pngjs.crc">module pngjs.crc</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.crc.crc" id="apidoc.element.pngjs.crc.crc">
+        function <span class="apidocSignatureSpan">pngjs.</span>crc
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">crc = function () {
+  this._crc = -1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.crc.crc32" id="apidoc.element.pngjs.crc.crc32">
+        function <span class="apidocSignatureSpan">pngjs.crc.</span>crc32
+        <span class="apidocSignatureSpan">(buf)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">crc32 = function (buf) {
+
+  var crc = -1;
+  for (var i = 0; i &lt; buf.length; i++) {
+    crc = crcTable[(crc ^ buf[i]) &amp; 0xff] ^ (crc &gt;&gt;&gt; 8);
+  }
+  return crc ^ -1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+buf.writeUInt32BE(len, 0);
+buf.writeUInt32BE(type, 4);
+
+if (data) {
+  data.copy(buf, 8);
+}
+
+buf.writeInt32BE(CrcStream.<span class="apidocCodeKeywordSpan">crc32</span>(buf.slice(4, buf.length - 4)), buf.length - 4);
+return buf;
+};
+
+Packer.prototype.packGAMA = function(gamma) {
+var buf = new Buffer(4);
+buf.writeUInt32BE(Math.floor(gamma * constants.GAMMA_DIVISION), 0);
+return this._packChunk(constants.TYPE_gAMA, buf);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.crc.prototype" id="apidoc.module.pngjs.crc.prototype">module pngjs.crc.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.crc.prototype.crc32" id="apidoc.element.pngjs.crc.prototype.crc32">
+        function <span class="apidocSignatureSpan">pngjs.crc.prototype.</span>crc32
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">crc32 = function () {
+  return this._crc ^ -1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+buf.writeUInt32BE(len, 0);
+buf.writeUInt32BE(type, 4);
+
+if (data) {
+  data.copy(buf, 8);
+}
+
+buf.writeInt32BE(CrcStream.<span class="apidocCodeKeywordSpan">crc32</span>(buf.slice(4, buf.length - 4)), buf.length - 4);
+return buf;
+};
+
+Packer.prototype.packGAMA = function(gamma) {
+var buf = new Buffer(4);
+buf.writeUInt32BE(Math.floor(gamma * constants.GAMMA_DIVISION), 0);
+return this._packChunk(constants.TYPE_gAMA, buf);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.crc.prototype.write" id="apidoc.element.pngjs.crc.prototype.write">
+        function <span class="apidocSignatureSpan">pngjs.crc.prototype.</span>write
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">write = function (data) {
+
+  for (var i = 0; i &lt; data.length; i++) {
+    this._crc = crcTable[(this._crc ^ data[i]) &amp; 0xff] ^ (this._crc &gt;&gt;&gt; 8);
+  }
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Take a buffer and returns a PNG image. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+```
+
+### PNG.sync.<span class="apidocCodeKeywordSpan">write</span>(png)
+
+Take a PNG image and returns a buffer. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+var buffer = PNG.sync.write(png);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.filter_parse" id="apidoc.module.pngjs.filter_parse">module pngjs.filter_parse</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse.filter_parse" id="apidoc.element.pngjs.filter_parse.filter_parse">
+        function <span class="apidocSignatureSpan">pngjs.</span>filter_parse
+        <span class="apidocSignatureSpan">(bitmapInfo, dependencies)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter_parse = function (bitmapInfo, dependencies) {
+
+  var width = bitmapInfo.width;
+  var height = bitmapInfo.height;
+  var interlace = bitmapInfo.interlace;
+  var bpp = bitmapInfo.bpp;
+  var depth = bitmapInfo.depth;
+
+  this.read = dependencies.read;
+  this.write = dependencies.write;
+  this.complete = dependencies.complete;
+
+  this._imageIndex = 0;
+  this._images = [];
+  if (interlace) {
+    var passes = interlaceUtils.getImagePasses(width, height);
+    for (var i = 0; i &lt; passes.length; i++) {
+      this._images.push({
+        byteWidth: getByteWidth(passes[i].width, bpp, depth),
+        height: passes[i].height,
+        lineIndex: 0
+      });
+    }
+  }
+  else {
+    this._images.push({
+      byteWidth: getByteWidth(width, bpp, depth),
+      height: height,
+      lineIndex: 0
+    });
+  }
+
+  // when filtering the line we look at the pixel to the left
+  // the spec also says it is done on a byte level regardless of the number of pixels
+  // so if the depth is byte compatible (8 or 16) we subtract the bpp in order to compare back
+  // a pixel rather than just a different byte part. However if we are sub byte, we ignore.
+  if (depth === 8) {
+    this._xComparison = bpp;
+  }
+  else if (depth === 16) {
+    this._xComparison = bpp * 2;
+  }
+  else {
+    this._xComparison = 1;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.filter_parse.prototype" id="apidoc.module.pngjs.filter_parse.prototype">module pngjs.filter_parse.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse.prototype._reverseFilterLine" id="apidoc.element.pngjs.filter_parse.prototype._reverseFilterLine">
+        function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>_reverseFilterLine
+        <span class="apidocSignatureSpan">(rawData)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_reverseFilterLine = function (rawData) {
+
+  var filter = rawData[0];
+  var unfilteredLine;
+  var currentImage = this._images[this._imageIndex];
+  var byteWidth = currentImage.byteWidth;
+
+  if (filter === 0) {
+    unfilteredLine = rawData.slice(1, byteWidth + 1);
+  }
+  else {
+
+    unfilteredLine = new Buffer(byteWidth);
+
+    switch (filter) {
+      case 1:
+        this._unFilterType1(rawData, unfilteredLine, byteWidth);
+        break;
+      case 2:
+        this._unFilterType2(rawData, unfilteredLine, byteWidth);
+        break;
+      case 3:
+        this._unFilterType3(rawData, unfilteredLine, byteWidth);
+        break;
+      case 4:
+        this._unFilterType4(rawData, unfilteredLine, byteWidth);
+        break;
+      default:
+        throw new Error('Unrecognised filter type - ' + filter);
+    }
+  }
+
+  this.write(unfilteredLine);
+
+  currentImage.lineIndex++;
+  if (currentImage.lineIndex &gt;= currentImage.height) {
+    this._lastLine = null;
+    this._imageIndex++;
+    currentImage = this._images[this._imageIndex];
+  }
+  else {
+    this._lastLine = unfilteredLine;
+  }
+
+  if (currentImage) {
+    // read, using the byte width that may be from the new current image
+    this.read(currentImage.byteWidth + 1, this._reverseFilterLine.bind(this));
+  }
+  else {
+    this._lastLine = null;
+    this.complete();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse.prototype._unFilterType1" id="apidoc.element.pngjs.filter_parse.prototype._unFilterType1">
+        function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>_unFilterType1
+        <span class="apidocSignatureSpan">(rawData, unfilteredLine, byteWidth)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_unFilterType1 = function (rawData, unfilteredLine, byteWidth) {
+
+  var xComparison = this._xComparison;
+  var xBiggerThan = xComparison - 1;
+
+  for (var x = 0; x &lt; byteWidth; x++) {
+    var rawByte = rawData[1 + x];
+    var f1Left = x &gt; xBiggerThan ? unfilteredLine[x - xComparison] : 0;
+    unfilteredLine[x] = rawByte + f1Left;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  else {
+
+unfilteredLine = new Buffer(byteWidth);
+
+switch (filter) {
+  case 1:
+    this.<span class="apidocCodeKeywordSpan">_unFilterType1</span>(rawData, unfilteredLine, byteWidth);
+    break;
+  case 2:
+    this._unFilterType2(rawData, unfilteredLine, byteWidth);
+    break;
+  case 3:
+    this._unFilterType3(rawData, unfilteredLine, byteWidth);
+    break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse.prototype._unFilterType2" id="apidoc.element.pngjs.filter_parse.prototype._unFilterType2">
+        function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>_unFilterType2
+        <span class="apidocSignatureSpan">(rawData, unfilteredLine, byteWidth)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_unFilterType2 = function (rawData, unfilteredLine, byteWidth) {
+
+  var lastLine = this._lastLine;
+
+  for (var x = 0; x &lt; byteWidth; x++) {
+    var rawByte = rawData[1 + x];
+    var f2Up = lastLine ? lastLine[x] : 0;
+    unfilteredLine[x] = rawByte + f2Up;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+unfilteredLine = new Buffer(byteWidth);
+
+switch (filter) {
+  case 1:
+    this._unFilterType1(rawData, unfilteredLine, byteWidth);
+    break;
+  case 2:
+    this.<span class="apidocCodeKeywordSpan">_unFilterType2</span>(rawData, unfilteredLine, byteWidth);
+    break;
+  case 3:
+    this._unFilterType3(rawData, unfilteredLine, byteWidth);
+    break;
+  case 4:
+    this._unFilterType4(rawData, unfilteredLine, byteWidth);
+    break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse.prototype._unFilterType3" id="apidoc.element.pngjs.filter_parse.prototype._unFilterType3">
+        function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>_unFilterType3
+        <span class="apidocSignatureSpan">(rawData, unfilteredLine, byteWidth)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_unFilterType3 = function (rawData, unfilteredLine, byteWidth) {
+
+  var xComparison = this._xComparison;
+  var xBiggerThan = xComparison - 1;
+  var lastLine = this._lastLine;
+
+  for (var x = 0; x &lt; byteWidth; x++) {
+    var rawByte = rawData[1 + x];
+    var f3Up = lastLine ? lastLine[x] : 0;
+    var f3Left = x &gt; xBiggerThan ? unfilteredLine[x - xComparison] : 0;
+    var f3Add = Math.floor((f3Left + f3Up) / 2);
+    unfilteredLine[x] = rawByte + f3Add;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  case 1:
+    this._unFilterType1(rawData, unfilteredLine, byteWidth);
+    break;
+  case 2:
+    this._unFilterType2(rawData, unfilteredLine, byteWidth);
+    break;
+  case 3:
+    this.<span class="apidocCodeKeywordSpan">_unFilterType3</span>(rawData, unfilteredLine, byteWidth);
+    break;
+  case 4:
+    this._unFilterType4(rawData, unfilteredLine, byteWidth);
+    break;
+  default:
+    throw new Error('Unrecognised filter type - ' + filter);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse.prototype._unFilterType4" id="apidoc.element.pngjs.filter_parse.prototype._unFilterType4">
+        function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>_unFilterType4
+        <span class="apidocSignatureSpan">(rawData, unfilteredLine, byteWidth)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_unFilterType4 = function (rawData, unfilteredLine, byteWidth) {
+
+  var xComparison = this._xComparison;
+  var xBiggerThan = xComparison - 1;
+  var lastLine = this._lastLine;
+
+  for (var x = 0; x &lt; byteWidth; x++) {
+    var rawByte = rawData[1 + x];
+    var f4Up = lastLine ? lastLine[x] : 0;
+    var f4Left = x &gt; xBiggerThan ? unfilteredLine[x - xComparison] : 0;
+    var f4UpLeft = x &gt; xBiggerThan &amp;&amp; lastLine ? lastLine[x - xComparison] : 0;
+    var f4Add = paethPredictor(f4Left, f4Up, f4UpLeft);
+    unfilteredLine[x] = rawByte + f4Add;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    case 2:
+      this._unFilterType2(rawData, unfilteredLine, byteWidth);
+      break;
+    case 3:
+      this._unFilterType3(rawData, unfilteredLine, byteWidth);
+      break;
+    case 4:
+      this.<span class="apidocCodeKeywordSpan">_unFilterType4</span>(rawData, unfilteredLine, byteWidth);
+      break;
+    default:
+      throw new Error('Unrecognised filter type - ' + filter);
+  }
+}
+
+this.write(unfilteredLine);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse.prototype.start" id="apidoc.element.pngjs.filter_parse.prototype.start">
+        function <span class="apidocSignatureSpan">pngjs.filter_parse.prototype.</span>start
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function () {
+  this.read(this._images[this._imageIndex].byteWidth + 1, this._reverseFilterLine.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      buffers.push(buffer);
+    },
+    complete: function() {
+      that.emit('complete', Buffer.concat(buffers));
+    }
+  });
+
+  this._filter.<span class="apidocCodeKeywordSpan">start</span>();
+};
+util.inherits(FilterAsync, ChunkStream);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.filter_parse_async" id="apidoc.module.pngjs.filter_parse_async">module pngjs.filter_parse_async</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse_async.filter_parse_async" id="apidoc.element.pngjs.filter_parse_async.filter_parse_async">
+        function <span class="apidocSignatureSpan">pngjs.</span>filter_parse_async
+        <span class="apidocSignatureSpan">(bitmapInfo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filter_parse_async = function (bitmapInfo) {
+  ChunkStream.call(this);
+
+  var buffers = [];
+  var that = this;
+  this._filter = new Filter(bitmapInfo, {
+    read: this.read.bind(this),
+    write: function(buffer) {
+      buffers.push(buffer);
+    },
+    complete: function() {
+      that.emit('complete', Buffer.concat(buffers));
+    }
+  });
+
+  this._filter.start();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse_async.super_" id="apidoc.element.pngjs.filter_parse_async.super_">
+        function <span class="apidocSignatureSpan">pngjs.filter_parse_async.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function () {
+  Stream.call(this);
+
+  this._buffers = [];
+  this._buffered = 0;
+
+  this._reads = [];
+  this._paused = false;
+
+  this._encoding = 'utf8';
+  this.writable = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.filter_parse_sync" id="apidoc.module.pngjs.filter_parse_sync">module pngjs.filter_parse_sync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.filter_parse_sync.process" id="apidoc.element.pngjs.filter_parse_sync.process">
+        function <span class="apidocSignatureSpan">pngjs.filter_parse_sync.</span>process
+        <span class="apidocSignatureSpan">(inBuffer, bitmapInfo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">process = function (inBuffer, bitmapInfo) {
+
+  var outBuffers = [];
+  var reader = new SyncReader(inBuffer);
+  var filter = new Filter(bitmapInfo, {
+    read: reader.read.bind(reader),
+    write: function(bufferPart) {
+      outBuffers.push(bufferPart);
+    },
+    complete: function() {
+    }
+  });
+
+  filter.start();
+  reader.process();
+
+  return Buffer.concat(outBuffers);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      outBuffers.push(bufferPart);
+    },
+    complete: function() {
+    }
+  });
+
+  filter.start();
+  reader.<span class="apidocCodeKeywordSpan">process</span>();
+
+  return Buffer.concat(outBuffers);
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.interlace" id="apidoc.module.pngjs.interlace">module pngjs.interlace</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.interlace.getImagePasses" id="apidoc.element.pngjs.interlace.getImagePasses">
+        function <span class="apidocSignatureSpan">pngjs.interlace.</span>getImagePasses
+        <span class="apidocSignatureSpan">(width, height)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getImagePasses = function (width, height) {
+  var images = [];
+  var xLeftOver = width % 8;
+  var yLeftOver = height % 8;
+  var xRepeats = (width - xLeftOver) / 8;
+  var yRepeats = (height - yLeftOver) / 8;
+  for (var i = 0; i &lt; imagePasses.length; i++) {
+    var pass = imagePasses[i];
+    var passWidth = xRepeats * pass.x.length;
+    var passHeight = yRepeats * pass.y.length;
+    for (var j = 0; j &lt; pass.x.length; j++) {
+      if (pass.x[j] &lt; xLeftOver) {
+        passWidth++;
+      }
+      else {
+        break;
+      }
+    }
+    for (j = 0; j &lt; pass.y.length; j++) {
+      if (pass.y[j] &lt; yLeftOver) {
+        passHeight++;
+      }
+      else {
+        break;
+      }
+    }
+    if (passWidth &gt; 0 &amp;&amp; passHeight &gt; 0) {
+      images.push({ width: passWidth, height: passHeight, index: i });
+    }
+  }
+  return images;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+var maxBit = Math.pow(2, depth) - 1;
+var rawPos = 0;
+var images;
+var getPxPos;
+
+if (interlace) {
+  images = interlaceUtils.<span class="apidocCodeKeywordSpan">getImagePasses</span>(width, height);
+  getPxPos = interlaceUtils.getInterlaceIterator(width, height);
+}
+else {
+  var nonInterlacedPxPos = 0;
+  getPxPos = function() {
+    var returner = nonInterlacedPxPos;
+    nonInterlacedPxPos += 4;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.interlace.getInterlaceIterator" id="apidoc.element.pngjs.interlace.getInterlaceIterator">
+        function <span class="apidocSignatureSpan">pngjs.interlace.</span>getInterlaceIterator
+        <span class="apidocSignatureSpan">(width)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getInterlaceIterator = function (width) {
+  return function(x, y, pass) {
+    var outerXLeftOver = x % imagePasses[pass].x.length;
+    var outerX = (((x - outerXLeftOver) / imagePasses[pass].x.length) * 8) + imagePasses[pass].x[outerXLeftOver];
+    var outerYLeftOver = y % imagePasses[pass].y.length;
+    var outerY = (((y - outerYLeftOver) / imagePasses[pass].y.length) * 8) + imagePasses[pass].y[outerYLeftOver];
+    return (outerX * 4) + (outerY * width * 4);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var maxBit = Math.pow(2, depth) - 1;
+var rawPos = 0;
+var images;
+var getPxPos;
+
+if (interlace) {
+  images = interlaceUtils.getImagePasses(width, height);
+  getPxPos = interlaceUtils.<span class="apidocCodeKeywordSpan">getInterlaceIterator</span>(width, height);
+}
+else {
+  var nonInterlacedPxPos = 0;
+  getPxPos = function() {
+    var returner = nonInterlacedPxPos;
+    nonInterlacedPxPos += 4;
+    return returner;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.packer" id="apidoc.module.pngjs.packer">module pngjs.packer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer.packer" id="apidoc.element.pngjs.packer.packer">
+        function <span class="apidocSignatureSpan">pngjs.</span>packer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">packer = function (options) {
+  this._options = options;
+
+  options.deflateChunkSize = options.deflateChunkSize || 32 * 1024;
+  options.deflateLevel = options.deflateLevel != null ? options.deflateLevel : 9;
+  options.deflateStrategy = options.deflateStrategy != null ? options.deflateStrategy : 3;
+  options.inputHasAlpha = options.inputHasAlpha != null ? options.inputHasAlpha : true;
+  options.deflateFactory = options.deflateFactory || zlib.createDeflate;
+  options.bitDepth = options.bitDepth || 8;
+  options.colorType = (typeof options.colorType === 'number') ? options.colorType : constants.COLORTYPE_COLOR_ALPHA;
+
+  if (options.colorType !== constants.COLORTYPE_COLOR &amp;&amp; options.colorType !== constants.COLORTYPE_COLOR_ALPHA) {
+    throw new Error('option color type:' + options.colorType + ' is not supported at present');
+  }
+  if (options.bitDepth !== 8) {
+    throw new Error('option bit depth:' + options.bitDepth + ' is not supported at present');
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.packer.prototype" id="apidoc.module.pngjs.packer.prototype">module pngjs.packer.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer.prototype._packChunk" id="apidoc.element.pngjs.packer.prototype._packChunk">
+        function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>_packChunk
+        <span class="apidocSignatureSpan">(type, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_packChunk = function (type, data) {
+
+  var len = (data ? data.length : 0);
+  var buf = new Buffer(len + 12);
+
+  buf.writeUInt32BE(len, 0);
+  buf.writeUInt32BE(type, 4);
+
+  if (data) {
+    data.copy(buf, 8);
+  }
+
+  buf.writeInt32BE(CrcStream.crc32(buf.slice(4, buf.length - 4)), buf.length - 4);
+  return buf;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+buf.writeInt32BE(CrcStream.crc32(buf.slice(4, buf.length - 4)), buf.length - 4);
+return buf;
+};
+
+Packer.prototype.packGAMA = function(gamma) {
+var buf = new Buffer(4);
+buf.writeUInt32BE(Math.floor(gamma * constants.GAMMA_DIVISION), 0);
+return this.<span class="apidocCodeKeywordSpan">_packChunk</span>(constants.TYPE_gAMA, buf);
+};
+
+Packer.prototype.packIHDR = function(width, height) {
+
+var buf = new Buffer(13);
+buf.writeUInt32BE(width, 0);
+buf.writeUInt32BE(height, 4);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer.prototype.createDeflate" id="apidoc.element.pngjs.packer.prototype.createDeflate">
+        function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>createDeflate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createDeflate = function () {
+  return this._options.deflateFactory(this.getDeflateOptions());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var PackerAsync = module.exports = function(opt) {
+  Stream.call(this);
+
+  var options = opt || {};
+
+  this._packer = new Packer(options);
+  this._deflate = this._packer.<span class="apidocCodeKeywordSpan">createDeflate</span>();
+
+  this.readable = true;
+};
+util.inherits(PackerAsync, Stream);
+
+
+PackerAsync.prototype.pack = function(data, width, height, gamma) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer.prototype.filterData" id="apidoc.element.pngjs.packer.prototype.filterData">
+        function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>filterData
+        <span class="apidocSignatureSpan">(data, width, height)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filterData = function (data, width, height) {
+  // convert to correct format for filtering (e.g. right bpp and bit depth)
+  var packedData = bitPacker(data, width, height, this._options);
+
+  // filter pixel data
+  var bpp = constants.COLORTYPE_TO_BPP_MAP[this._options.colorType];
+  var filteredData = filter(packedData, width, height, this._options, bpp);
+  return filteredData;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.emit('data', new Buffer(constants.PNG_SIGNATURE));
+this.emit('data', this._packer.packIHDR(width, height));
+
+if (gamma) {
+  this.emit('data', this._packer.packGAMA(gamma));
+}
+
+var filteredData = this._packer.<span class="apidocCodeKeywordSpan">filterData</span>(data, width, height);
+
+// compress it
+this._deflate.on('error', this.emit.bind(this, 'error'));
+
+this._deflate.on('data', function(compressedData) {
+  this.emit('data', this._packer.packIDAT(compressedData));
+}.bind(this));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer.prototype.getDeflateOptions" id="apidoc.element.pngjs.packer.prototype.getDeflateOptions">
+        function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>getDeflateOptions
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getDeflateOptions = function () {
+  return {
+    chunkSize: this._options.deflateChunkSize,
+    level: this._options.deflateLevel,
+    strategy: this._options.deflateStrategy
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  chunkSize: this._options.deflateChunkSize,
+  level: this._options.deflateLevel,
+  strategy: this._options.deflateStrategy
+};
+};
+
+Packer.prototype.createDeflate = function() {
+return this._options.deflateFactory(this.<span class="apidocCodeKeywordSpan">getDeflateOptions</span>());
+};
+
+Packer.prototype.filterData = function(data, width, height) {
+// convert to correct format for filtering (e.g. right bpp and bit depth)
+var packedData = bitPacker(data, width, height, this._options);
+
+// filter pixel data
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer.prototype.packGAMA" id="apidoc.element.pngjs.packer.prototype.packGAMA">
+        function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>packGAMA
+        <span class="apidocSignatureSpan">(gamma)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">packGAMA = function (gamma) {
+  var buf = new Buffer(4);
+  buf.writeUInt32BE(Math.floor(gamma * constants.GAMMA_DIVISION), 0);
+  return this._packChunk(constants.TYPE_gAMA, buf);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+PackerAsync.prototype.pack = function(data, width, height, gamma) {
+// Signature
+this.emit('data', new Buffer(constants.PNG_SIGNATURE));
+this.emit('data', this._packer.packIHDR(width, height));
+
+if (gamma) {
+  this.emit('data', this._packer.<span class="apidocCodeKeywordSpan">packGAMA</span>(gamma));
+}
+
+var filteredData = this._packer.filterData(data, width, height);
+
+// compress it
+this._deflate.on('error', this.emit.bind(this, 'error'));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer.prototype.packIDAT" id="apidoc.element.pngjs.packer.prototype.packIDAT">
+        function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>packIDAT
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">packIDAT = function (data) {
+  return this._packChunk(constants.TYPE_IDAT, data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var filteredData = this._packer.filterData(data, width, height);
+
+// compress it
+this._deflate.on('error', this.emit.bind(this, 'error'));
+
+this._deflate.on('data', function(compressedData) {
+  this.emit('data', this._packer.<span class="apidocCodeKeywordSpan">packIDAT</span>(compressedData));
+}.bind(this));
+
+this._deflate.on('end', function() {
+  this.emit('data', this._packer.packIEND());
+  this.emit('end');
+}.bind(this));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer.prototype.packIEND" id="apidoc.element.pngjs.packer.prototype.packIEND">
+        function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>packIEND
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">packIEND = function () {
+  return this._packChunk(constants.TYPE_IEND, null);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this._deflate.on('error', this.emit.bind(this, 'error'));
+
+  this._deflate.on('data', function(compressedData) {
+    this.emit('data', this._packer.packIDAT(compressedData));
+  }.bind(this));
+
+  this._deflate.on('end', function() {
+    this.emit('data', this._packer.<span class="apidocCodeKeywordSpan">packIEND</span>());
+    this.emit('end');
+  }.bind(this));
+
+  this._deflate.end(filteredData);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer.prototype.packIHDR" id="apidoc.element.pngjs.packer.prototype.packIHDR">
+        function <span class="apidocSignatureSpan">pngjs.packer.prototype.</span>packIHDR
+        <span class="apidocSignatureSpan">(width, height)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">packIHDR = function (width, height) {
+
+  var buf = new Buffer(13);
+  buf.writeUInt32BE(width, 0);
+  buf.writeUInt32BE(height, 4);
+  buf[8] = this._options.bitDepth;  // Bit depth
+  buf[9] = this._options.colorType; // colorType
+  buf[10] = 0; // compression
+  buf[11] = 0; // filter
+  buf[12] = 0; // interlace
+
+  return this._packChunk(constants.TYPE_IHDR, buf);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+util.inherits(PackerAsync, Stream);
+
+
+PackerAsync.prototype.pack = function(data, width, height, gamma) {
+// Signature
+this.emit('data', new Buffer(constants.PNG_SIGNATURE));
+this.emit('data', this._packer.<span class="apidocCodeKeywordSpan">packIHDR</span>(width, height));
+
+if (gamma) {
+  this.emit('data', this._packer.packGAMA(gamma));
+}
+
+var filteredData = this._packer.filterData(data, width, height);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.packer_async" id="apidoc.module.pngjs.packer_async">module pngjs.packer_async</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer_async.packer_async" id="apidoc.element.pngjs.packer_async.packer_async">
+        function <span class="apidocSignatureSpan">pngjs.</span>packer_async
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">packer_async = function (opt) {
+  Stream.call(this);
+
+  var options = opt || {};
+
+  this._packer = new Packer(options);
+  this._deflate = this._packer.createDeflate();
+
+  this.readable = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer_async.super_" id="apidoc.element.pngjs.packer_async.super_">
+        function <span class="apidocSignatureSpan">pngjs.packer_async.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Stream() {
+  EE.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.packer_async.prototype" id="apidoc.module.pngjs.packer_async.prototype">module pngjs.packer_async.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.packer_async.prototype.pack" id="apidoc.element.pngjs.packer_async.prototype.pack">
+        function <span class="apidocSignatureSpan">pngjs.packer_async.prototype.</span>pack
+        <span class="apidocSignatureSpan">(data, width, height, gamma)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pack = function (data, width, height, gamma) {
+  // Signature
+  this.emit('data', new Buffer(constants.PNG_SIGNATURE));
+  this.emit('data', this._packer.packIHDR(width, height));
+
+  if (gamma) {
+    this.emit('data', this._packer.packGAMA(gamma));
+  }
+
+  var filteredData = this._packer.filterData(data, width, height);
+
+  // compress it
+  this._deflate.on('error', this.emit.bind(this, 'error'));
+
+  this._deflate.on('data', function(compressedData) {
+    this.emit('data', this._packer.packIDAT(compressedData));
+  }.bind(this));
+
+  this._deflate.on('end', function() {
+    this.emit('data', this._packer.packIEND());
+    this.emit('end');
+  }.bind(this));
+
+  this._deflate.end(filteredData);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+                this.data[idx+2] = 255 - this.data[idx+2];
+
+                // and reduce opacity
+                this.data[idx+3] = this.data[idx+3] &gt;&gt; 1;
+            }
+        }
+
+        this.<span class="apidocCodeKeywordSpan">pack</span>().pipe(fs.createWriteStream('out.png'));
+    });
+```
+For more examples see `examples` folder.
+
+Async API
+================
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.parser" id="apidoc.module.pngjs.parser">module pngjs.parser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.parser" id="apidoc.element.pngjs.parser.parser">
+        function <span class="apidocSignatureSpan">pngjs.</span>parser
+        <span class="apidocSignatureSpan">(options, dependencies)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parser = function (options, dependencies) {
+
+  this._options = options;
+  options.checkCRC = options.checkCRC !== false;
+
+  this._hasIHDR = false;
+  this._hasIEND = false;
+
+  // input flags/metadata
+  this._palette = [];
+  this._colorType = 0;
+
+  this._chunks = {};
+  this._chunks[constants.TYPE_IHDR] = this._handleIHDR.bind(this);
+  this._chunks[constants.TYPE_IEND] = this._handleIEND.bind(this);
+  this._chunks[constants.TYPE_IDAT] = this._handleIDAT.bind(this);
+  this._chunks[constants.TYPE_PLTE] = this._handlePLTE.bind(this);
+  this._chunks[constants.TYPE_tRNS] = this._handleTRNS.bind(this);
+  this._chunks[constants.TYPE_gAMA] = this._handleGAMA.bind(this);
+
+  this.read = dependencies.read;
+  this.error = dependencies.error;
+  this.metadata = dependencies.metadata;
+  this.gamma = dependencies.gamma;
+  this.transColor = dependencies.transColor;
+  this.palette = dependencies.palette;
+  this.parsed = dependencies.parsed;
+  this.inflateData = dependencies.inflateData;
+  this.inflateData = dependencies.inflateData;
+  this.finished = dependencies.finished;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.parser.prototype" id="apidoc.module.pngjs.parser.prototype">module pngjs.parser.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._handleChunkEnd" id="apidoc.element.pngjs.parser.prototype._handleChunkEnd">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleChunkEnd
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleChunkEnd = function () {
+  this.read(4, this._parseChunkEnd.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    palette: Boolean(colorType &amp; constants.COLORTYPE_PALETTE),
+    color: Boolean(colorType &amp; constants.COLORTYPE_COLOR),
+    alpha: Boolean(colorType &amp; constants.COLORTYPE_ALPHA),
+    bpp: bpp,
+    colorType: colorType
+  });
+
+  this.<span class="apidocCodeKeywordSpan">_handleChunkEnd</span>();
+};
+
+
+Parser.prototype._handlePLTE = function(length) {
+  this.read(length, this._parsePLTE.bind(this));
+};
+Parser.prototype._parsePLTE = function(data) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._handleGAMA" id="apidoc.element.pngjs.parser.prototype._handleGAMA">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleGAMA
+        <span class="apidocSignatureSpan">(length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleGAMA = function (length) {
+  this.read(length, this._parseGAMA.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._handleIDAT" id="apidoc.element.pngjs.parser.prototype._handleIDAT">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleIDAT
+        <span class="apidocSignatureSpan">(length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleIDAT = function (length) {
+  this.read(-length, this._parseIDAT.bind(this, length));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    throw new Error('Expected palette not found');
+  }
+
+  this.inflateData(data);
+  var leftOverLength = length - data.length;
+
+  if (leftOverLength &gt; 0) {
+    this.<span class="apidocCodeKeywordSpan">_handleIDAT</span>(leftOverLength);
+  }
+  else {
+    this._handleChunkEnd();
+  }
+};
+
+Parser.prototype._handleIEND = function(length) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._handleIEND" id="apidoc.element.pngjs.parser.prototype._handleIEND">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleIEND
+        <span class="apidocSignatureSpan">(length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleIEND = function (length) {
+  this.read(length, this._parseIEND.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._handleIHDR" id="apidoc.element.pngjs.parser.prototype._handleIHDR">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleIHDR
+        <span class="apidocSignatureSpan">(length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleIHDR = function (length) {
+  this.read(length, this._parseIHDR.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._handlePLTE" id="apidoc.element.pngjs.parser.prototype._handlePLTE">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handlePLTE
+        <span class="apidocSignatureSpan">(length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handlePLTE = function (length) {
+  this.read(length, this._parsePLTE.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._handleTRNS" id="apidoc.element.pngjs.parser.prototype._handleTRNS">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_handleTRNS
+        <span class="apidocSignatureSpan">(length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleTRNS = function (length) {
+  this.read(length, this._parseTRNS.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._parseChunkBegin" id="apidoc.element.pngjs.parser.prototype._parseChunkBegin">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseChunkBegin
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parseChunkBegin = function (data) {
+
+  // chunk content length
+  var length = data.readUInt32BE(0);
+
+  // chunk type
+  var type = data.readUInt32BE(4);
+  var name = '';
+  for (var i = 4; i &lt; 8; i++) {
+    name += String.fromCharCode(data[i]);
+  }
+
+  //console.log('chunk ', name, length);
+
+  // chunk flags
+  var ancillary = Boolean(data[4] &amp; 0x20); // or critical
+//    priv = Boolean(data[5] &amp; 0x20), // or public
+//    safeToCopy = Boolean(data[7] &amp; 0x20); // or unsafe
+
+  if (!this._hasIHDR &amp;&amp; type !== constants.TYPE_IHDR) {
+    this.error(new Error('Expected IHDR on beggining'));
+    return;
+  }
+
+  this._crc = new CrcCalculator();
+  this._crc.write(new Buffer(name));
+
+  if (this._chunks[type]) {
+    return this._chunks[type](length);
+  }
+
+  if (!ancillary) {
+    this.error(new Error('Unsupported critical chunk type ' + name));
+    return;
+  }
+
+  this.read(length + 4, this._skipChunk.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._parseChunkEnd" id="apidoc.element.pngjs.parser.prototype._parseChunkEnd">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseChunkEnd
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parseChunkEnd = function (data) {
+
+  var fileCrc = data.readInt32BE(0);
+  var calcCrc = this._crc.crc32();
+
+  // check CRC
+  if (this._options.checkCRC &amp;&amp; calcCrc !== fileCrc) {
+    this.error(new Error('Crc error - ' + fileCrc + ' - ' + calcCrc));
+    return;
+  }
+
+  if (!this._hasIEND) {
+    this.read(8, this._parseChunkBegin.bind(this));
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._parseGAMA" id="apidoc.element.pngjs.parser.prototype._parseGAMA">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseGAMA
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parseGAMA = function (data) {
+
+  this._crc.write(data);
+  this.gamma(data.readUInt32BE(0) / constants.GAMMA_DIVISION);
+
+  this._handleChunkEnd();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._parseIDAT" id="apidoc.element.pngjs.parser.prototype._parseIDAT">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseIDAT
+        <span class="apidocSignatureSpan">(length, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parseIDAT = function (length, data) {
+
+  this._crc.write(data);
+
+  if (this._colorType === constants.COLORTYPE_PALETTE_COLOR &amp;&amp; this._palette.length === 0) {
+    throw new Error('Expected palette not found');
+  }
+
+  this.inflateData(data);
+  var leftOverLength = length - data.length;
+
+  if (leftOverLength &gt; 0) {
+    this._handleIDAT(leftOverLength);
+  }
+  else {
+    this._handleChunkEnd();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._parseIEND" id="apidoc.element.pngjs.parser.prototype._parseIEND">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseIEND
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parseIEND = function (data) {
+
+  this._crc.write(data);
+
+  this._hasIEND = true;
+  this._handleChunkEnd();
+
+  if (this.finished) {
+    this.finished();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._parseIHDR" id="apidoc.element.pngjs.parser.prototype._parseIHDR">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseIHDR
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parseIHDR = function (data) {
+
+  this._crc.write(data);
+
+  var width = data.readUInt32BE(0);
+  var height = data.readUInt32BE(4);
+  var depth = data[8];
+  var colorType = data[9]; // bits: 1 palette, 2 color, 4 alpha
+  var compr = data[10];
+  var filter = data[11];
+  var interlace = data[12];
+
+  // console.log('    width', width, 'height', height,
+  //     'depth', depth, 'colorType', colorType,
+  //     'compr', compr, 'filter', filter, 'interlace', interlace
+  // );
+
+  if (depth !== 8 &amp;&amp; depth !== 4 &amp;&amp; depth !== 2 &amp;&amp; depth !== 1 &amp;&amp; depth !== 16) {
+    this.error(new Error('Unsupported bit depth ' + depth));
+    return;
+  }
+  if (!(colorType in constants.COLORTYPE_TO_BPP_MAP)) {
+    this.error(new Error('Unsupported color type'));
+    return;
+  }
+  if (compr !== 0) {
+    this.error(new Error('Unsupported compression method'));
+    return;
+  }
+  if (filter !== 0) {
+    this.error(new Error('Unsupported filter method'));
+    return;
+  }
+  if (interlace !== 0 &amp;&amp; interlace !== 1) {
+    this.error(new Error('Unsupported interlace method'));
+    return;
+  }
+
+  this._colorType = colorType;
+
+  var bpp = constants.COLORTYPE_TO_BPP_MAP[this._colorType];
+
+  this._hasIHDR = true;
+
+  this.metadata({
+    width: width,
+    height: height,
+    depth: depth,
+    interlace: Boolean(interlace),
+    palette: Boolean(colorType &amp; constants.COLORTYPE_PALETTE),
+    color: Boolean(colorType &amp; constants.COLORTYPE_COLOR),
+    alpha: Boolean(colorType &amp; constants.COLORTYPE_ALPHA),
+    bpp: bpp,
+    colorType: colorType
+  });
+
+  this._handleChunkEnd();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._parsePLTE" id="apidoc.element.pngjs.parser.prototype._parsePLTE">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parsePLTE
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parsePLTE = function (data) {
+
+  this._crc.write(data);
+
+  var entries = Math.floor(data.length / 3);
+  // console.log('Palette:', entries);
+
+  for (var i = 0; i &lt; entries; i++) {
+    this._palette.push([
+      data[i * 3],
+      data[i * 3 + 1],
+      data[i * 3 + 2],
+      0xff
+    ]);
+  }
+
+  this.palette(this._palette);
+
+  this._handleChunkEnd();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._parseSignature" id="apidoc.element.pngjs.parser.prototype._parseSignature">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseSignature
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parseSignature = function (data) {
+
+  var signature = constants.PNG_SIGNATURE;
+
+  for (var i = 0; i &lt; signature.length; i++) {
+    if (data[i] !== signature[i]) {
+      this.error(new Error('Invalid file signature'));
+      return;
+    }
+  }
+  this.read(8, this._parseChunkBegin.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._parseTRNS" id="apidoc.element.pngjs.parser.prototype._parseTRNS">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_parseTRNS
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_parseTRNS = function (data) {
+
+  this._crc.write(data);
+
+  // palette
+  if (this._colorType === constants.COLORTYPE_PALETTE_COLOR) {
+    if (this._palette.length === 0) {
+      this.error(new Error('Transparency chunk must be after palette'));
+      return;
+    }
+    if (data.length &gt; this._palette.length) {
+      this.error(new Error('More transparent colors than palette size'));
+      return;
+    }
+    for (var i = 0; i &lt; data.length; i++) {
+      this._palette[i][3] = data[i];
+    }
+    this.palette(this._palette);
+  }
+
+  // for colorType 0 (grayscale) and 2 (rgb)
+  // there might be one gray/color defined as transparent
+  if (this._colorType === constants.COLORTYPE_GRAYSCALE) {
+    // grey, 2 bytes
+    this.transColor([data.readUInt16BE(0)]);
+  }
+  if (this._colorType === constants.COLORTYPE_COLOR) {
+    this.transColor([data.readUInt16BE(0), data.readUInt16BE(2), data.readUInt16BE(4)]);
+  }
+
+  this._handleChunkEnd();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype._skipChunk" id="apidoc.element.pngjs.parser.prototype._skipChunk">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>_skipChunk
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_skipChunk = function () {
+  this.read(8, this._parseChunkBegin.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser.prototype.start" id="apidoc.element.pngjs.parser.prototype.start">
+        function <span class="apidocSignatureSpan">pngjs.parser.prototype.</span>start
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function () {
+  this.read(constants.PNG_SIGNATURE.length,
+    this._parseSignature.bind(this)
+  );
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      buffers.push(buffer);
+    },
+    complete: function() {
+      that.emit('complete', Buffer.concat(buffers));
+    }
+  });
+
+  this._filter.<span class="apidocCodeKeywordSpan">start</span>();
+};
+util.inherits(FilterAsync, ChunkStream);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.parser_async" id="apidoc.module.pngjs.parser_async">module pngjs.parser_async</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser_async.parser_async" id="apidoc.element.pngjs.parser_async.parser_async">
+        function <span class="apidocSignatureSpan">pngjs.</span>parser_async
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parser_async = function (options) {
+  ChunkStream.call(this);
+
+  this._parser = new Parser(options, {
+    read: this.read.bind(this),
+    error: this._handleError.bind(this),
+    metadata: this._handleMetaData.bind(this),
+    gamma: this.emit.bind(this, 'gamma'),
+    palette: this._handlePalette.bind(this),
+    transColor: this._handleTransColor.bind(this),
+    finished: this._finished.bind(this),
+    inflateData: this._inflateData.bind(this)
+  });
+  this._options = options;
+  this.writable = true;
+
+  this._parser.start();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser_async.super_" id="apidoc.element.pngjs.parser_async.super_">
+        function <span class="apidocSignatureSpan">pngjs.parser_async.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function () {
+  Stream.call(this);
+
+  this._buffers = [];
+  this._buffered = 0;
+
+  this._reads = [];
+  this._paused = false;
+
+  this._encoding = 'utf8';
+  this.writable = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.parser_async.prototype" id="apidoc.module.pngjs.parser_async.prototype">module pngjs.parser_async.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser_async.prototype._complete" id="apidoc.element.pngjs.parser_async.prototype._complete">
+        function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_complete
+        <span class="apidocSignatureSpan">(filteredData)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_complete = function (filteredData) {
+
+  if (this.errord) {
+    return;
+  }
+
+  try {
+    var bitmapData = bitmapper.dataToBitMap(filteredData, this._bitmapInfo);
+
+    var normalisedBitmapData = formatNormaliser(bitmapData, this._bitmapInfo);
+    bitmapData = null;
+  }
+  catch (ex) {
+    this._handleError(ex);
+    return;
+  }
+
+  this.emit('parsed', normalisedBitmapData);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser_async.prototype._finished" id="apidoc.element.pngjs.parser_async.prototype._finished">
+        function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_finished
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_finished = function () {
+  if (this.errord) {
+    return;
+  }
+
+  if (!this._inflate) {
+    this.emit('error', 'No Inflate block');
+  }
+  else {
+    // no more data to inflate
+    this._inflate.end();
+  }
+  this.destroySoon();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser_async.prototype._handleError" id="apidoc.element.pngjs.parser_async.prototype._handleError">
+        function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_handleError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleError = function (err) {
+
+  this.emit('error', err);
+
+  this.writable = false;
+
+  this.destroy();
+
+  if (this._inflate &amp;&amp; this._inflate.destroy) {
+    this._inflate.destroy();
+  }
+
+  this.errord = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  try {
+    var bitmapData = bitmapper.dataToBitMap(filteredData, this._bitmapInfo);
+
+    var normalisedBitmapData = formatNormaliser(bitmapData, this._bitmapInfo);
+    bitmapData = null;
+  }
+  catch (ex) {
+    this.<span class="apidocCodeKeywordSpan">_handleError</span>(ex);
+    return;
+  }
+
+  this.emit('parsed', normalisedBitmapData);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser_async.prototype._handleMetaData" id="apidoc.element.pngjs.parser_async.prototype._handleMetaData">
+        function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_handleMetaData
+        <span class="apidocSignatureSpan">(metaData)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleMetaData = function (metaData) {
+
+  this.emit('metadata', metaData);
+
+  this._bitmapInfo = Object.create(metaData);
+
+  this._filter = new FilterAsync(this._bitmapInfo);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser_async.prototype._handlePalette" id="apidoc.element.pngjs.parser_async.prototype._handlePalette">
+        function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_handlePalette
+        <span class="apidocSignatureSpan">(palette)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handlePalette = function (palette) {
+  this._bitmapInfo.palette = palette;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser_async.prototype._handleTransColor" id="apidoc.element.pngjs.parser_async.prototype._handleTransColor">
+        function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_handleTransColor
+        <span class="apidocSignatureSpan">(transColor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_handleTransColor = function (transColor) {
+  this._bitmapInfo.transColor = transColor;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.parser_async.prototype._inflateData" id="apidoc.element.pngjs.parser_async.prototype._inflateData">
+        function <span class="apidocSignatureSpan">pngjs.parser_async.prototype.</span>_inflateData
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_inflateData = function (data) {
+  if (!this._inflate) {
+    this._inflate = zlib.createInflate();
+
+    this._inflate.on('error', this.emit.bind(this, 'error'));
+    this._filter.on('complete', this._complete.bind(this));
+
+    this._inflate.pipe(this._filter);
+  }
+  this._inflate.write(data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.sync_reader" id="apidoc.module.pngjs.sync_reader">module pngjs.sync_reader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.sync_reader.sync_reader" id="apidoc.element.pngjs.sync_reader.sync_reader">
+        function <span class="apidocSignatureSpan">pngjs.</span>sync_reader
+        <span class="apidocSignatureSpan">(buffer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sync_reader = function (buffer) {
+
+  this._buffer = buffer;
+  this._reads = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.pngjs.sync_reader.prototype" id="apidoc.module.pngjs.sync_reader.prototype">module pngjs.sync_reader.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.sync_reader.prototype.process" id="apidoc.element.pngjs.sync_reader.prototype.process">
+        function <span class="apidocSignatureSpan">pngjs.sync_reader.prototype.</span>process
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">process = function () {
+
+  // as long as there is any data and read requests
+  while (this._reads.length &gt; 0 &amp;&amp; this._buffer.length) {
+
+    var read = this._reads[0];
+
+    if (this._buffer.length &amp;&amp; (this._buffer.length &gt;= read.length || read.allowLess)) {
+
+      // ok there is any data so that we can satisfy this request
+      this._reads.shift(); // == read
+
+      var buf = this._buffer;
+
+      this._buffer = buf.slice(read.length);
+
+      read.func.call(this, buf.slice(0, read.length));
+
+    }
+    else {
+      break;
+    }
+
+  }
+
+  if (this._reads.length &gt; 0) {
+    return new Error('There are some read requests waitng on finished stream');
+  }
+
+  if (this._buffer.length &gt; 0) {
+    return new Error('unrecognised content at end of stream');
+  }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      outBuffers.push(bufferPart);
+    },
+    complete: function() {
+    }
+  });
+
+  filter.start();
+  reader.<span class="apidocCodeKeywordSpan">process</span>();
+
+  return Buffer.concat(outBuffers);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.pngjs.sync_reader.prototype.read" id="apidoc.element.pngjs.sync_reader.prototype.read">
+        function <span class="apidocSignatureSpan">pngjs.sync_reader.prototype.</span>read
+        <span class="apidocSignatureSpan">(length, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">read = function (length, callback) {
+
+  this._reads.push({
+    length: Math.abs(length),  // if length &lt; 0 then at most this length
+    allowLess: length &lt; 0,
+    func: callback
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    });
+```
+
+# Sync API
+
+## PNG.sync
+
+### PNG.sync.<span class="apidocCodeKeywordSpan">read</span>(buffer)
+
+Take a buffer and returns a PNG image. The properties on the image include the meta data and `data` as per the async API above.
+
+```
+var data = fs.readFileSync('in.png');
+var png = PNG.sync.read(data);
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
